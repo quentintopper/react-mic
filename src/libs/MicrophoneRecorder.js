@@ -13,7 +13,23 @@ let onStopCallback;
 let onSaveCallback;
 let onDataCallback;
 
-const constraints = { audio: true, video: false }; // constraints - only audio needed
+const constraints = { 
+  audio: { 
+    mandatory: {
+      googEchoCancellation: false,
+      googAutoGainControl: false,
+      googAutoGainControl2: false,
+      googNoiseSuppression: false,
+      googHighpassFilter: false,
+      googTypingNoiseDetection: false,
+      echoCancellation: false,
+    },
+    optional: {
+      echoCancellation: false,
+    },
+   }, 
+  video: false,
+}; // constraints - only audio needed
 
 navigator.getUserMedia = (navigator.getUserMedia ||
                           navigator.webkitGetUserMedia ||
